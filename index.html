@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yadri Amzal</title>
+    <title>Yadri Amtsal</title>
     <link rel="stylesheet" href="style.css">
-    <style></style>
+    <link rel="stylesheet" href="mobile-navbar.css">
+    
   </head>
   <body>
     <div class="background">
@@ -18,8 +19,13 @@
     <header class="navbar" id="navbar">
       <div class="navbar-shell">
         <div class="nav-inner">
-        <a href="#about" class="brand">Yadri<span> Amzal</span></a>
-        <nav class="nav-links">
+        <a href="#about" class="brand"><span>Yadri</span> <span> Amtsal</span></a>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav class="nav-links" id="navLinks">
           <a href="#about">About</a>
           <a href="#education">Education</a>
           <a href="#skills">Skills</a>
@@ -38,15 +44,15 @@
               <span class="dot"></span>
               Open to opportunities
             </div>
-            <p class="eyebrow hero-seq" style="animation-delay: 0.35s">Software Engineer • Web Developer</p>
-            <h1 class="hero-seq" style="animation-delay: 0.5s">Building dark, modern, and purposeful web experiences.</h1>
+            <p class="eyebrow hero-seq" style="animation-delay: 0.35s">Software Engineer • Fullstack Web Developer</p>
+            <h1 class="hero-seq" style="animation-delay: 0.5s">Hello World</h1>
             <p class="description hero-seq" style="animation-delay: 0.72s">
-              I’m <strong>Yadri Amzal</strong>, a developer focused on crafting responsive interfaces and solving real
+              I’m <strong>Yadri Amtsal</strong>, a developer focused on crafting responsive interfaces and solving real
               problems through code. I care about clean design, sharp user experience, and projects that feel alive.
             </p>
             <div class="hero-actions hero-seq" style="animation-delay: 0.95s">
-              <a class="btn btn-primary" href="#projects">Download CV</a>
-              <!-- <a class="btn btn-secondary" href="#contact">Download CV</a> -->
+              <!-- <a class="btn btn-primary" href="#projects">Download CV</a> -->
+              <a class="btn btn-secondary" href="#contact">Download CV</a>
             </div>
           </div>
 
@@ -54,9 +60,10 @@
             <div class="profile-wrap hero-image">
               <div class="profile-glow"></div>
               <div class="profile-ring">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Profile" />
+                <!-- <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Profile" /> -->
+                 <img src="images/profile_crosshanded.png" alt="">
               </div>
-              <div class="profile-tag">Frontend • Backend • UI Focus</div>
+              <div class="profile-tag">Frontend • Backend</div>
             </div>
           </div>
         </div>
@@ -254,6 +261,24 @@
       const navbar = document.getElementById('navbar');
       const navLinks = document.querySelectorAll('.nav-links a');
       const sections = document.querySelectorAll('main section[id]');
+
+      // Mobile menu toggle
+      const hamburger = document.getElementById('hamburger');
+      const mobileNavLinks = document.getElementById('navLinks');
+
+      if (hamburger && mobileNavLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          mobileNavLinks.classList.toggle('active');
+        });
+
+        mobileNavLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileNavLinks.classList.remove('active');
+          });
+        });
+      }
 
       window.addEventListener('DOMContentLoaded', () => {
         heroSequence.forEach((item) => {

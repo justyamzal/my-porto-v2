@@ -132,7 +132,6 @@
         min-height: 62px;
         padding: 0 18px;
         justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(18px);
@@ -149,6 +148,13 @@
         letter-spacing: 0.04em;
         transition: opacity 0.25s ease, transform 0.25s ease;
       }
+
+      .brand:hover span {
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
 
       .brand span {
         color: var(--violet);
@@ -322,7 +328,8 @@
 
       .btn-secondary:hover {
         border-color: rgba(139, 92, 246, 0.4);
-        background: rgba(255, 255, 255, 0.07);
+        /* background: rgba(255, 255, 255, 0.07); */
+        background: linear-gradient(90deg, var(--violet), var(--cyan));
       }
 
       .hero-visual {
